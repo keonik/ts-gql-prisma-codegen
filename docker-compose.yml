@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "4321:5432"
+    environment:
+      - POSTGRES_PASSWORD=yoga-password
+      - POSTGRES_USER=yoga-user
+      - POSTGRES_DB=yoga
