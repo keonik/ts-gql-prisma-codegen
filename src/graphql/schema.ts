@@ -3,7 +3,7 @@ import { readFileSync } from "fs";
 import packageJson from "../../package.json";
 import { GraphQLContext } from "./context";
 import { Message, Resolvers } from "../gen/types/resolvers-types";
-import { DateResolver, DateTimeTypeDefinition } from "graphql-scalars";
+import { DateTimeResolver, DateTimeTypeDefinition } from "graphql-scalars";
 import { GraphQLError } from "graphql";
 
 const pubSub = createPubSub<{
@@ -13,7 +13,7 @@ const pubSub = createPubSub<{
 const typeDefs = readFileSync("src/graphql/schema.graphql", "utf8");
 
 const resolvers: Resolvers<GraphQLContext> = {
-  DateTime: DateResolver,
+  DateTime: DateTimeResolver,
   Query: {
     hello: () => "world",
     version: () => packageJson.version,
