@@ -1,18 +1,18 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client';
 
 export type GraphQLContext = {
-  prisma: PrismaClient;
+    prisma: PrismaClient;
 };
 
 const prisma = new PrismaClient({
-  log:
-    process.env.ENVIRONMENT === "development"
-      ? ["query", "info", "warn", "error"]
-      : ["warn", "error"],
+    log:
+        process.env.ENVIRONMENT === 'development'
+            ? ['query', 'info', 'warn', 'error']
+            : ['warn', 'error'],
 });
 
 export async function createContext(): Promise<GraphQLContext> {
-  return {
-    prisma,
-  };
+    return {
+        prisma,
+    };
 }

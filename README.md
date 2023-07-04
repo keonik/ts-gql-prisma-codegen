@@ -1,22 +1,23 @@
-# GraphQL Yoga CodeGen starter template
+\*\*\*\*# GraphQL Yoga CodeGen starter template
 
 Type-safe Node.js API in the GraphQL specification.
 
 ## Batteries included
 
-- [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server)
-  > The fully-featured GraphQL Server with focus on easy setup, performance and great developer experience.
-- [GraphQL CodeGen](https://the-guild.dev/graphql/codegen)
-  > Generate code from your GraphQL schema and operations with a simple CLI
-- [Prisma](https://www.prisma.io/)
-  > Next-generation Node.js and TypeScript ORM
-- Example Queries, Mutations, and even Subscriptions using the server sent events(SSE) protocol
-  Documentation - For more on server sent events vs. web sockets refer to [SSE vs. WS](https://the-guild.dev/graphql/yoga-server/docs/features/subscriptions#sse-vs-websocket) in the Guild Yoga Server documentation
+-   [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server)
+    > The fully-featured GraphQL Server with focus on easy setup, performance and great developer experience.
+-   [GraphQL CodeGen](https://the-guild.dev/graphql/codegen)
+    > Generate code from your GraphQL schema and operations with a simple CLI
+-   [Prisma](https://www.prisma.io/)
+    > Next-generation Node.js and TypeScript ORM
+-   Example Queries, Mutations, and even Subscriptions using the server sent events(SSE) protocol
+    Documentation - For more on server sent events vs. web sockets refer to [SSE vs. WS](https://the-guild.dev/graphql/yoga-server/docs/features/subscriptions#sse-vs-websocket) in the Guild Yoga Server documentation
+
+![ERD](./prisma/erd.svg)
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) >=16
-- [Docker](https://www.docker.com/)
+-   [Node.js](https://nodejs.org/) >=16
 
 ## How to use from scratch
 
@@ -45,13 +46,11 @@ cd ts-gql-prisma-codegen
 # Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
 # See the documentation for all the connection string options: https://pris.ly/d/connection-strings
 
-DATABASE_URL="postgresql://yoga-user:yoga-password@localhost:4321/yoga?schema=public"
+DATABASE_URL="file:./dev.db"
 APP_PORT=4040
 ```
 
-> If you did change your `DATABASE_URL` parameters such as database user, password, port, and schema you will need to update your `docker-compose.yml` to match those changes.
-
-4. Install project dependencies
+1. Install project dependencies
 
 ```bash
 # npm

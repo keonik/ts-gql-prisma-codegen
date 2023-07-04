@@ -2,3 +2,9 @@
 node_modules
 
 src/gen
+.db
+
+dist
+
+**/*.DS_Store
+**/*.db*
