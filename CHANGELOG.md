@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/keonik/ts-gql-prisma-codegen/compare/v1.0.0...v1.0.1) (2023-07-05)
+
+
+### Bug Fixes
+
+* startup instructions and moving main.ts to index.ts ([cf9f00f](https://github.com/keonik/ts-gql-prisma-codegen/commit/cf9f00f0d0d7b772be73e9a77fe6463f62ef5522))
+
 # 1.0.0 (2023-07-04)
 
 
