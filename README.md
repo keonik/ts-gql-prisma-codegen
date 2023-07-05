@@ -172,4 +172,6 @@ Assuming success, you should have a new directory and `.sql` file under the `./p
 
 ## Hosting
 
-Contributions welcome! We already have Docker hosting in the pipeline to document for you all. If you happen to have another way of hosting feel free to contribute! Thanks and have a great day!
+`npm run build`
+
+`node ./dist/src/index.js`
