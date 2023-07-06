@@ -8,8 +8,8 @@ type Query {
 
 type Mutation {
     addMessage(messageInput: MessageInput!): Message!
-    addUserToRoom(roomId: String!, userId: Int!): Boolean!
-    createRoom(roomId: String!): Boolean!
+    addUserToRoom(roomId: String!, userId: Int!): User!
+    createRoom(roomId: String!): Room!
     createUser(email: String!, name: String): User!
 }
 
@@ -35,4 +35,10 @@ type User {
     id: Int!
     email: String!
     name: String
+}
+
+type Room {
+    id: String!
+    name: String!
+    createdAt: DateTime!
 }

@@ -58,15 +58,43 @@ const resolvers: Resolvers<GraphQLContext> = {
             pubSub.publish('roomId:message', newMessage.roomId, newMessage);
             return newMessage;
         },
+        addUserToRoom: async (_: unknown, { roomId, userId }, { prisma }) => {
+            try {
+                const roomExists = await prisma.room.findFirst({
+                    where: {
+                        id: roomId,
+                    },
+                });
+
+                if (!roomExists) {
+                    throw new GraphQLError('Room not found');
+                }
+                const userAdded = await prisma.user.update({
+                    where: {
+                        id: userId,
+                    },
+                    data: {
+                        rooms: {
+                            connect: {
+                                id: roomId,
+                            },
+                        },
+                    },
+                });
+                return userAdded;
+            } catch (error) {
+                throw new GraphQLError('User not added');
+            }
+        },
         createRoom: async (_: unknown, { roomId }, { prisma }) => {
             try {
-                await prisma.room.create({
+                const roomMade = await prisma.room.create({
                     data: {
                         name: roomId,
                         id: roomId,
                     },
                 });
-                return true;
+                return roomMade;
             } catch (error) {
                 throw new GraphQLError('Room not created');
             }
@@ -87,8 +115,17 @@ const resolvers: Resolvers<GraphQLContext> = {
     },
     Subscription: {
         room: {
-            subscribe: (_: unknown, { roomId }) =>
-                pubSub.subscribe('roomId:message', roomId),
+            subscribe: async (_: unknown, { roomId }, { prisma }) => {
+                const roomExists = await prisma.room.findFirst({
+                    where: {
+                        id: roomId,
+                    },
+                });
+                if (!roomExists) {
+                    throw new GraphQLError('Room not found');
+                }
+                return pubSub.subscribe('roomId:message', roomId);
+            },
             resolve: (payload: Message) => {
                 return payload;
             },
