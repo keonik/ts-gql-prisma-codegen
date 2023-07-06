@@ -50,7 +50,7 @@ DATABASE_URL="file:./dev.db"
 APP_PORT=4040
 ```
 
-1. Install project dependencies
+4. Install project dependencies
 
 ```bash
 # npm
@@ -63,7 +63,19 @@ rm package-lock.json
 pnpm install
 ```
 
-5. Start development server
+5. Apply database migrations
+
+```bash
+npm run migrate
+```
+
+6. Seed database
+
+```bash
+npm run seed:dev
+```
+
+7. Start development server
 
 ```bash
 npm run dev
@@ -81,7 +93,7 @@ The `src/graphql/codegen.ts` file is the starting point for all changes. If you 
 import type { CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
-  schema: "./src/graphql/schema.graphql",
+  schema: "schema.graphql",
   generates: {
     "./src/gen/types/resolvers-types.ts": {
       config: {
@@ -97,12 +109,12 @@ const config: CodegenConfig = {
 export default config;
 ```
 
-Take a look above. The important pieces to this configuration is the `schema` and the `generates` keys. The `schema` located at `./src/graphql/schema.graphql` is the initial definition that tells this codegen cli what to generate. So when you want to add, edit, or delete resolver typescript definitions you will add it to that file, or create a new schema if you'd like.
+Take a look above. The important pieces to this configuration is the `schema` and the `generates` keys. The `schema` located at `schema.graphql` is the initial definition that tells this codegen cli what to generate. So when you want to add, edit, or delete resolver typescript definitions you will add it to that file, or create a new schema if you'd like.
 
-Once you have made an update to your `schema.graphql` file, you can run the cli
+If you are running in development mode, codegen will recognize a change was made and run the script below to regenerate expected types for type safety. If not in development mode, once you have made an update to your `schema.graphql` file, you can run the cli
 
 ```bash
-npm run generate-types
+npm run codegen
 ```
 
 If you have successfully generated your resolver types you should see the following
@@ -175,3 +187,14 @@ Assuming success, you should have a new directory and `.sql` file under the `./p
 `npm run build`
 
 `node ./dist/src/index.js`
+
+### Database initial setup
+
+In production, you will need to apply migrations and, if desired, seed your database. To do so, you can run the following commands.
+
+```bash
+# apply migrations
+prisma migrate deploy
+# seed database
+npm run seed:prod
+```

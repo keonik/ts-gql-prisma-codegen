@@ -1,0 +1,38 @@
+scalar DateTime
+
+type Query {
+    version: String!
+    roomMessages(roomId: String!): [Message!]!
+    roomUsers(roomId: String!): [User!]!
+}
+
+type Mutation {
+    addMessage(messageInput: MessageInput!): Message!
+    addUserToRoom(roomId: String!, userId: Int!): Boolean!
+    createRoom(roomId: String!): Boolean!
+    createUser(email: String!, name: String): User!
+}
+
+type Subscription {
+    room(roomId: String!): Message!
+}
+
+input MessageInput {
+    roomId: String!
+    text: String!
+    userId: Int!
+}
+
+type Message {
+    id: Int!
+    createdAt: DateTime!
+    roomId: String!
+    text: String!
+    userId: Int!
+}
+
+type User {
+    id: Int!
+    email: String!
+    name: String
+}
