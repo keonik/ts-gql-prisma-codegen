@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/keonik/ts-gql-prisma-codegen/compare/v1.1.0...v1.1.1) (2023-07-06)
+
+
+### Bug Fixes
+
+* Adjust example to include all queries. ([372411b](https://github.com/keonik/ts-gql-prisma-codegen/commit/372411b6141ef5a164c495438e3f695b6e2d281c))
+
 # [1.1.0](https://github.com/keonik/ts-gql-prisma-codegen/compare/v1.0.1...v1.1.0) (2023-07-06)
 
 
