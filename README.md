@@ -13,7 +13,7 @@ Type-safe Node.js API in the GraphQL specification.
 -   Example Queries, Mutations, and even Subscriptions using the server sent events(SSE) protocol
     Documentation - For more on server sent events vs. web sockets refer to [SSE vs. WS](https://the-guild.dev/graphql/yoga-server/docs/features/subscriptions#sse-vs-websocket) in the Guild Yoga Server documentation
 
-![ERD](./prisma/erd.svg)
+![ERD](./prisma/ERD.svg)
 
 ## Prerequisites
 
