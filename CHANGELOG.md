@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/keonik/ts-gql-prisma-codegen/compare/v1.0.1...v1.1.0) (2023-07-06)
+
+
+### Features
+
+* Added queries and mutations to further example of chat room usage. Added watch mode to development mode scripts to run graphql-codegen on file change ([9a649bc](https://github.com/keonik/ts-gql-prisma-codegen/commit/9a649bc49ee54b748114bf169727be9cde31e3e5))
+
 ## [1.0.1](https://github.com/keonik/ts-gql-prisma-codegen/compare/v1.0.0...v1.0.1) (2023-07-05)
 
 
