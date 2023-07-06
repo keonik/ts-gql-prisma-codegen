@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/keonik/ts-gql-prisma-codegen/compare/v1.1.1...v1.1.2) (2023-07-06)
+
+
+### Bug Fixes
+
+* Remove types connection in tsconfig ([e358f1e](https://github.com/keonik/ts-gql-prisma-codegen/commit/e358f1e9abb5fb695ff1207c43ab427673381cd0))
+
 ## [1.1.1](https://github.com/keonik/ts-gql-prisma-codegen/compare/v1.1.0...v1.1.1) (2023-07-06)
 
 
